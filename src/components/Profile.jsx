@@ -3,6 +3,7 @@ import CardSaldo from "../components/CardSaldo";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import DefaultUserPic from "../assets/Profile Photo.png";
 
 const Profile = () => {
   const isToken = useSelector((state) => state.login.isToken);
@@ -30,7 +31,12 @@ const Profile = () => {
     <div className="flex gap-2 justify-between">
       <div className="w-full">
         <img
-          src={user.profile_image}
+          src={
+            user.profile_image ===
+            "https://minio.nutech-integrasi.com/take-home-test/null"
+              ? DefaultUserPic
+              : user.profile_image
+          }
           alt=""
           className="rounded-full border w-16 h-16 mb-4"
         />

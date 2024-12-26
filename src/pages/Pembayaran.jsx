@@ -10,9 +10,11 @@ import Modal from "../components/Modal";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const Pembayaran = () => {
   const { nama } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const SaldoAmmount = useSelector(
     (state) => state.Pembayaran.PembayaranAmmount
@@ -81,7 +83,8 @@ const Pembayaran = () => {
 
       setStatus(res.data.status);
       setTimeout(() => {
-        window.location.reload();
+        // window.location.reload();
+        navigate(0);
       }, 2000);
     } catch (error) {
       console.log("error", error);

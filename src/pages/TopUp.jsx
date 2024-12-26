@@ -7,9 +7,11 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import Profile from "../components/Profile";
 import Modal from "../components/Modal";
+import { useNavigate } from "react-router-dom";
 
 const TopUpPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const topUpAmmount = useSelector((state) => state.TopUp.TopUpAmmount);
   const ErrorAmmount = useSelector((state) => state.TopUp.errorAmmount);
   const isToken = useSelector((state) => state.login.isToken);
@@ -37,7 +39,8 @@ const TopUpPage = () => {
       setStatus(res.data.status);
       console.log("res", res);
       setTimeout(() => {
-        window.location.reload();
+        // window.location.reload();
+        navigate(0);
       }, 2000);
     } catch (error) {
       console.log("error", error);
