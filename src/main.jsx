@@ -19,8 +19,6 @@ import Pembayaran from "./pages/Pembayaran";
 const ProtectedRoute = ({ children }) => {
   const isLogin = useSelector((state) => state.login.isLogin);
 
-  console.log("islogin nya : ", isLogin);
-
   if (!isLogin || isLogin === null) {
     return <Navigate to="/Login" />;
   }

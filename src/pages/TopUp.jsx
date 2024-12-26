@@ -36,7 +36,6 @@ const TopUpPage = () => {
       );
       setStatus(res.data.status);
       console.log("res", res);
-      console.log("res data", res.data.status);
       setTimeout(() => {
         window.location.reload();
       }, 2000);
@@ -44,8 +43,6 @@ const TopUpPage = () => {
       console.log("error", error);
     }
   };
-
-  console.log("topUpAmmount", topUpAmmount);
 
   return (
     <div>

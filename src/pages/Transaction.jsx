@@ -20,7 +20,6 @@ const TransactionPage = () => {
             },
           }
         );
-        console.log("response transaction", response);
         setTransaction(response.data.data.records);
       } catch (error) {
         console.log(error);

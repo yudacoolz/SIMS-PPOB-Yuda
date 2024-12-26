@@ -52,7 +52,6 @@ function RegisterPage() {
         }
       );
 
-      console.log("response", response);
       setError("");
       setSuccess(true);
     } catch (error) {

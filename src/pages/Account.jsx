@@ -104,7 +104,6 @@ const AccountPage = () => {
         );
         setUser(response.data.data);
         setSuccess(true);
-        console.log("Profile updated successfully", response.data);
       } catch (error) {
         console.log("Error uploading image:", error);
       }

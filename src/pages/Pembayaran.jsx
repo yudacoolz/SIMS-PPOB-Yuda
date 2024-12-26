@@ -13,14 +13,11 @@ import { faWallet } from "@fortawesome/free-solid-svg-icons";
 
 const Pembayaran = () => {
   const { nama } = useParams();
-  console.log("nama nya adalah ", nama);
   const dispatch = useDispatch();
   const SaldoAmmount = useSelector(
     (state) => state.Pembayaran.PembayaranAmmount
   );
-  console.log("SaldoAmmount", SaldoAmmount);
   const isError = useSelector((state) => state.Pembayaran.errorMessage);
-  console.log("isError", isError);
   const isToken = useSelector((state) => state.login.isToken);
   const [showModal, setShowModal] = useState(false);
   const [status, setStatus] = useState(null);
@@ -38,7 +35,6 @@ const Pembayaran = () => {
             },
           }
         );
-        console.log("response service", response.data.data);
         const fetchedServices = response.data.data;
         setServices(fetchedServices);
       } catch (error) {
@@ -53,7 +49,6 @@ const Pembayaran = () => {
       const filteredService = services.filter(
         (item) => item.service_name.toLowerCase() === nama.toLowerCase()
       );
-      console.log("Filtered service", filteredService);
       setService(filteredService); // Update the filtered service
     }
   }, [services, nama]);
@@ -63,8 +58,6 @@ const Pembayaran = () => {
       dispatch(Payment(service[0].service_tariff));
     }
   }, [service]);
-  console.log("services", services);
-  console.log("service 1 aja", service);
 
   const HandleModal = async (e) => {
     e.preventDefault();
@@ -85,8 +78,6 @@ const Pembayaran = () => {
           },
         }
       );
-      console.log("res", res);
-      console.log("res data status", res.data.status);
 
       setStatus(res.data.status);
       setTimeout(() => {

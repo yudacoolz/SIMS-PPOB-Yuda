@@ -26,9 +26,7 @@ const CardSaldo = () => {
             },
           }
         );
-        console.log("resppionse card", response);
         const TotalSaldo = response.data.data.balance;
-        console.log("total saldo", TotalSaldo);
         setSaldo(TotalSaldo);
         dispatch(setSaldoSlice(TotalSaldo));
       } catch (error) {
@@ -39,7 +37,6 @@ const CardSaldo = () => {
   }, []);
 
   let formatSaldo = saldo.toLocaleString();
-  console.log("saldo", saldo);
   return (
     <div className="w-full p-5 flex flex-col gap-3 bg-red-600 rounded-lg">
       <p className="capitalize text-white">saldo anda</p>

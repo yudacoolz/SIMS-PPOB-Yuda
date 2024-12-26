@@ -40,15 +40,9 @@ function LoginPage() {
           },
         }
       );
-      console.log("response", response);
       setError("");
       if (response.data.data.token) {
-        console.log("token", response.data.data.token);
         const tokenReceived = response.data.data.token;
-        console.log("tokenReceived", tokenReceived);
-
-        // setToken(tokenReceived);
-        // console.log("token", token);
         sessionStorage.setItem("token", tokenReceived);
         dispatch(setIsLogin());
         dispatch(setIsToken(tokenReceived));
